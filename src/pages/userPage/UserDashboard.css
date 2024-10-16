@@ -1,0 +1,46 @@
+.user-dashboard {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+.user-header {
+  background: #35424a;
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+}
+
+.user-header nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.user-header nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.user-header nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.user-content {
+  margin: 20px 0;
+}
+
+.welcome-section {
+  margin-bottom: 20px;
+}
+
+.recent-activity {
+  margin-top: 20px;
+}
+
+.user-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #777;
+}
