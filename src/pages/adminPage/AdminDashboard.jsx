@@ -1,8 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./AdminDashboard.css"; // Optional CSS file for styling
+import authHook from "../../AuthHook";
+import { useNavigate } from "react-router-dom";
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const AdminDashboard = () => {
+  const { saveAuth, saveAdmin } = authHook();
+  const navigator = useNavigate();
+
+  async function logoutUser(e) {
+    e.preventDefault();
+    const response = await fetch(`${apiUrl}/logout`, {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      saveAuth(false);
+      saveAdmin(false);
+      navigator("/login");
+    }
+  }
+
   return (
     <div className="admin-dashboard">
       <header className="admin-header">
@@ -19,7 +40,7 @@ const AdminDashboard = () => {
               <Link to="/admin/settings">Settings</Link>
             </li>
             <li>
-              <Link to="/logout">Logout</Link>
+              <Link onClick={logoutUser}>Logout</Link>
             </li>
           </ul>
         </nav>
@@ -49,6 +70,8 @@ const AdminDashboard = () => {
               <p>5</p> {/* Replace with dynamic data */}
             </div>
           </div>
+
+          <Link onClick={logoutUser}>Logout</Link>
         </section>
 
         <section className="recent-activity">

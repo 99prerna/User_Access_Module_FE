@@ -5,6 +5,7 @@ const authHook = () => {
     const token = sessionStorage.getItem("isAuth");
     return token === "true";
   }
+
   const [isAuth, setAuth] = useState(getAuth());
   // 1. Manage Authentication.
   function saveAuth(isauth) {

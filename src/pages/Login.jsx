@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
 import "./login.css"; // Ensure this path is correct
-
 import authHook from "../AuthHook";
+
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function Login() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const navigate = useNavigate(); // Initialize useNavigate
@@ -16,7 +18,8 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:5055/loginUser", {
+    // const response = await fetch("http://172.17.0.2:5055/loginUser", {
+    const response = await fetch(`${apiUrl}/loginUser`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -27,15 +30,15 @@ function Login() {
 
     const data = await response.json();
 
-    if (!data.status) {
+    if (!response.ok) {
       alert("Login failed");
       return;
     }
 
     saveAuth(true); // Save auth status
+    console.log(typeof data.role, data.role);
     saveAdmin(data.role === "admin");
-
-    navigate(isAdmin ? "/damin/Dashboard" : "/user/Dashboard");
+    navigate(data.role === "admin" ? "/admin/Dashboard" : "/user/Dashboard");
 
     setFormData({ username: "", password: "" });
   }

@@ -1,8 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./UserDashboard.css"; // Optional CSS file for styling
+import authHook from "../../AuthHook";
+import { useNavigate } from "react-router-dom";
+
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const UserDashboard = () => {
+  const { saveAuth, saveAdmin } = authHook();
+  const navigator = useNavigate();
+
+  async function logoutUser(e) {
+    e.preventDefault();
+    const response = await fetch(`${apiUrl}/logout`, {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      saveAuth(false);
+      saveAdmin(false);
+      navigator("/login");
+    }
+  }
   return (
     <div className="user-dashboard">
       <header className="user-header">
@@ -16,7 +36,7 @@ const UserDashboard = () => {
               <Link to="/settings">Settings</Link>
             </li>
             <li>
-              <Link to="/logout">Logout</Link>
+              <button onClick={logoutUser}>Logout</button>
             </li>
           </ul>
         </nav>

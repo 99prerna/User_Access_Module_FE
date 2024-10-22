@@ -13,8 +13,8 @@ const HomePage = () => {
             Login
           </a>
         </Link>
-        <Link to="/register">
-          <a href="/register" className="login-button">
+        <Link to="/admin/register">
+          <a href="/admin/register" className="login-button">
             Register
           </a>
         </Link>

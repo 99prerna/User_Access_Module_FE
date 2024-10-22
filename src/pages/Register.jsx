@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./HomePage.css";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 function register() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -24,7 +26,7 @@ function register() {
   async function handleSubmit(e) {
     e.preventDefault();
     console.log(formData);
-    const response = await fetch("http://localhost:5055/registerUser", {
+    const response = await fetch(`${apiUrl}/registerUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
