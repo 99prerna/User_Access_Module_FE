@@ -42,6 +42,9 @@ const AdminDashboard = () => {
             <li>
               <Link onClick={logoutUser}>Logout</Link>
             </li>
+            <li>
+              <Link to="/admin/register">Register</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -72,6 +75,7 @@ const AdminDashboard = () => {
           </div>
 
           <Link onClick={logoutUser}>Logout</Link>
+          <Link to="/admin/register">Register</Link>
         </section>
 
         <section className="recent-activity">

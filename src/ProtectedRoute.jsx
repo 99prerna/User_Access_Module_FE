@@ -3,7 +3,6 @@ import authHook from "./AuthHook";
 
 export const AdminProtectedRoute = () => {
   const { isAuth, isAdmin } = authHook();
-
   if (!isAuth) {
     return <Navigate to="/login" />;
   }
@@ -18,7 +17,6 @@ export const AdminProtectedRoute = () => {
 
 export const ProtectedloginRoute = () => {
   const { isAuth, isAdmin } = authHook();
-
   if (!isAuth) {
     return <Outlet />;
   } else {
@@ -32,7 +30,6 @@ export const ProtectedloginRoute = () => {
 
 export const UserProtectedRoute = () => {
   const { isAuth, isAdmin } = authHook();
-
   if (!isAuth) {
     return <Navigate to="/login" />;
   }
