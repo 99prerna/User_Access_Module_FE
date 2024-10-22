@@ -5,22 +5,30 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminDashboard from "./pages/adminPage/AdminDashboard";
 import UserDashboard from "./pages/userPage/UserDashboard";
-import ProtectedRoute from "./ProtectedRoute";
+import {
+  AdminProtectedRoute,
+  ProtectedloginRoute,
+  UserProtectedRoute,
+} from "./ProtectedRoute";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
+
         <Route path="/admin/register" element={<Register />} />
 
         {/* Protected Routes */}
-        <Route element={<ProtectedRoute role="admin" />}>
+        <Route element={<ProtectedloginRoute />}>
+          <Route path="/login" element={<Login />} />
+        </Route>
+
+        <Route element={<AdminProtectedRoute />}>
           <Route path="/admin/Dashboard" element={<AdminDashboard />} />
         </Route>
 
-        <Route element={<ProtectedRoute role="user" />}>
+        <Route element={<UserProtectedRoute />}>
           <Route path="/user/Dashboard" element={<UserDashboard />} />
         </Route>
 
