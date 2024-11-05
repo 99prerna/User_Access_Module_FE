@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./HomePage.css";
+// import "./HomePage.css";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
