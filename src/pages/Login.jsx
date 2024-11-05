@@ -18,8 +18,8 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    // const response = await fetch("http://172.17.0.2:5055/loginUser", {
-    const response = await fetch(`${apiUrl}/loginUser`, {
+    const response = await fetch("http://localhost:5055", {
+    // const response = await fetch(`${apiUrl}/loginUser`, {
       method: "POST",
       credentials: "include",
       headers: {
