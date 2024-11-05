@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import "./login.css"; // Ensure this path is correct
+import "./Login.css"; // Ensure this path is correct
 import authHook from "../AuthHook";
 
 const apiUrl = import.meta.env.VITE_API_URL;
