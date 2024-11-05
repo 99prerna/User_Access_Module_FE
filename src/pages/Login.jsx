@@ -18,7 +18,7 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://18.188.230.42:5055", {
+    const response = await fetch("http://18.188.230.42:5055/loginUser", {
     // const response = await fetch(`${apiUrl}/loginUser`, {
       method: "POST",
       credentials: "include",
