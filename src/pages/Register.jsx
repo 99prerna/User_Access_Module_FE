@@ -50,7 +50,8 @@ function Register() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const response = await fetch(`${apiUrl}/registerUser`, {
+    const response = await fetch('http://3.23.105.251:5055/registerUser', {
+    // const response = await fetch(`${apiUrl}/registerUser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
