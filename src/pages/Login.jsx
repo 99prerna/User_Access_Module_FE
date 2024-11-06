@@ -18,8 +18,8 @@ function Login() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://18.188.230.42:5055/loginUser", {
-    // const response = await fetch(`${apiUrl}/loginUser`, {
+    // const response = await fetch("http://18.188.230.42:5055/loginUser", {
+    const response = await fetch(`${apiUrl}/loginUser`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -44,31 +44,40 @@ function Login() {
   }
 
   return (
-    <div className="login-container">
-      <h2>User Login Page</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
+    <div className="d-flex justify-content-center align-items-center" style={{height: 100+'vh', width: 100+'vw'}}>
+      <div className="border rounded-2 p-4 bg-light w-25">
+        <div className="mb-4">
+          <p className="fw-light text-secondary mb-0 text-xs fs-6">Let's get started,</p>
+          <h2 className="display-4 fw-light " style={{marginTop: -10}}>Login.</h2>
         </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label className="text-secondary fs-6 fw-light">Username</label>
+            <input
+              type="text"
+              name="username"
+              className="form-control"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label className="text-secondary fs-6 fw-light">Password</label>
+            <input
+              type="password"
+              name="password"
+              className="form-control"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              requireds
+            />
+          </div>
+          <div className="d-flex justify-content-end align-items-center mt-4"><button type="submit" className="rounded-pill fw-light px-4">Submit</button></div>
+        </form>
+      </div>
     </div>
   );
 }

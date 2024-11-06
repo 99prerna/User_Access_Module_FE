@@ -26,71 +26,75 @@ const AdminDashboard = () => {
 
   return (
     <div className="admin-dashboard">
-      <header className="admin-header">
+      <header className="admin-header pt-4 d-flex justify-content-around align-items-center">
         <h1>Admin Dashboard</h1>
         <nav>
           <ul>
             <li>
-              <Link to="/admin/users">Manage Users</Link>
+              <Link className="btn btn-secondry" to="/admin/users">Manage Users</Link>
             </li>
             <li>
-              <Link to="/admin/reports">Reports</Link>
+              <Link className="btn btn-secondry" to="/admin/reports">Reports</Link>
             </li>
             <li>
-              <Link to="/admin/settings">Settings</Link>
+              <Link className="btn btn-secondry" to="/admin/settings">Settings</Link>
+            </li>
+            </ul>
+        </nav>
+        <div className="col-1"></div>
+        <nav>   
+          <ul>
+          <li>
+              <Link className="btn btn-secondry" to="/admin/register">New User</Link>
             </li>
             <li>
-              <Link onClick={logoutUser}>Logout</Link>
+              <Link className="btn btn-secondry ml-4" onClick={logoutUser}>Logout</Link>
             </li>
-            <li>
-              <Link to="/admin/register">Register</Link>
-            </li>
+            
           </ul>
         </nav>
       </header>
 
-      <main className="admin-content">
-        <section className="welcome-section">
+      <main className="admin-content  mx-5 my-2">
+        <section className="welcome-section px-5">
           <h2>Welcome, Admin!</h2>
           <p>
             Here you can manage users, view reports, and configure settings.
           </p>
         </section>
 
-        <section className="stats-section">
-          <h2>Statistics</h2>
-          <div className="stats">
-            <div className="stat-card">
-              <h3>Total Users</h3>
-              <p>150</p> {/* Replace with dynamic data */}
+        <section className="mt-5 p-5">
+          <div className="row d-flex justify-content-around">
+            <div className="col-12 m-5">
+              <h2>Stats</h2>
             </div>
-            <div className="stat-card">
-              <h3>Active Users</h3>
-              <p>120</p> {/* Replace with dynamic data */}
+            <div className="col-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Total Users</h5>
+                  <p class="card-text">154</p>
+                </div>
+              </div>
             </div>
-            <div className="stat-card">
-              <h3>New Sign-ups Today</h3>
-              <p>5</p> {/* Replace with dynamic data */}
+            <div className="col-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Active Users</h5>
+                  <p class="card-text">113</p>
+                </div>
+              </div>
+            </div>
+            <div className="col-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Users for the day</h5>
+                  <p class="card-text">64</p>
+                </div>
+              </div>
             </div>
           </div>
-
-          <Link onClick={logoutUser}>Logout</Link>
-          <Link to="/admin/register">Register</Link>
-        </section>
-
-        <section className="recent-activity">
-          <h2>Recent Activity</h2>
-          <ul>
-            <li>User "johndoe" logged in</li>
-            <li>User "janedoe" updated profile</li>
-            <li>User "admin" added a new user</li>
-          </ul>
         </section>
       </main>
-
-      <footer className="admin-footer">
-        <p>&copy; 2024 User Access Control Module. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

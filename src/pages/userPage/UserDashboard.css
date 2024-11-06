@@ -1,6 +1,5 @@
 .user-dashboard {
   font-family: Arial, sans-serif;
-  padding: 20px;
   background-color: #f4f4f4;
 }
 
@@ -16,10 +15,7 @@
   padding: 0;
 }
 
-.user-header nav ul li {
-  display: inline;
-  margin: 0 15px;
-}
+
 
 .user-header nav ul li a {
   color: #ffffff;
@@ -34,13 +30,7 @@
   margin-bottom: 20px;
 }
 
-.recent-activity {
-  margin-top: 20px;
-}
-
-.user-footer {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 0.8em;
-  color: #777;
+.twoButton {
+  width: 100px;
+  height: inherit;
 }
